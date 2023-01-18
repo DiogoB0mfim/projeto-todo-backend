@@ -1,0 +1,31 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "firstName": "Diogo" ,
+    "lastName": "Bomfim",
+    "email": "diogo@email.com",
+    "password": "12345678"
+}
+
+####
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "diogo@email.com",
+    "password": "12345678"
+}
+
+####
+POST http://localhost:3003/workspace/create-workspace
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQwNzYxMjIsImV4cCI6MTY3NDA5NDEyMn0.9woCM1k80pvOhVGQpWDnOfhsVJnYb4hBGfoJbqmL1pM
+
+{
+    "idUser" : "fb71752d-9fd5-4990-b011-189bf33d3d43",
+    "name" : "Escola"
+}
+
+####
+GET http://localhost:3003/workspace/get-all
