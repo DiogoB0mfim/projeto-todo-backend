@@ -40,4 +40,15 @@ export class UserController {
       res.status(400).send(error.message);
     }
   }
+
+  async getAllUsers(req: Request, res: Response): Promise<void> {
+    try {
+      const token = req.headers.authorization as string;
+
+      const result = await userBusiness.getAllUsers(token);
+      res.status(200).send({ result: result });
+    } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  }
 }

@@ -13,7 +13,7 @@ const idGenerator = new IdGenerator();
 const tokenGenerator = new TokenGenerator();
 
 export class WorkspaceBusiness {
-  async createWorkspace(workspace: WorkspaceDTO,token: string): Promise<void | string> {
+  async createWorkspace(workspace: WorkspaceDTO, token: string): Promise<void | string> {
     try {
       const { idUser, name } = workspace;
 
@@ -41,10 +41,34 @@ export class WorkspaceBusiness {
     }
   }
 
-  async getAllWorkspaces(): Promise<Workspace[] | string> {
+  async getAllWorkspaces(token: string): Promise<Workspace[] | string> {
     try {
+      const authData = tokenGenerator.getData(token);
+
+      if (!authData.id) {
+        throw new InvalidAuthData();
+      }
+
       const result = await workspaceDatabase.getAllWorkspaces();
       return result;
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  }
+
+  async deleteWorkspace(id: string, token: string): Promise<void> {
+    try {
+      if (!id) {
+        throw new InvalidInfos();
+      }
+
+      const authData = tokenGenerator.getData(token);
+
+      if (!authData.id) {
+        throw new InvalidAuthData();
+      }
+
+      await workspaceDatabase.deleteWorkspace(id);
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

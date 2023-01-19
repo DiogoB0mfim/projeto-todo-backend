@@ -10,3 +10,6 @@ userRouter.post("/signup", userController.signUp);
 
 // Path para logar um usuário
 userRouter.post("/login", userController.login);
+
+// Path para pegar todos usuários
+userRouter.get("/get-all", userController.getAllUsers)

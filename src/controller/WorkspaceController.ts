@@ -24,8 +24,22 @@ export class WorkSpaceController {
 
   async getAllWorkspaces(req: Request, res: Response): Promise<void> {
     try {
-      const result = await workspaceBusiness.getAllWorkspaces();
+      const token = req.headers.authorization as string;
+
+      const result = await workspaceBusiness.getAllWorkspaces(token);
       res.status(200).send({ result: result });
+    } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  }
+
+  async deleteWorkspace(req: Request, res: Response): Promise<void> {
+    try {
+      const id = req.params.id;
+      const token = req.headers.authorization as string;
+
+      await workspaceBusiness.deleteWorkspace(id, token);
+      res.status(200).send({ result: "Workspace deletado!" });
     } catch (error: any) {
       res.status(400).send(error.message);
     }

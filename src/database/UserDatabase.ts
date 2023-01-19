@@ -21,4 +21,11 @@ export class UserDatabase extends BaseDatabase {
 
     return result[0];
   }
+
+  public async getAllUsers(): Promise<User[]> {
+    const result = await BaseDatabase.connection(UserDatabase.table)
+    .select();
+
+    return result;
+  }
 }

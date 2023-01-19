@@ -6,6 +6,7 @@ import { TokenGenerator } from "../services/TokenGenerator";
 import {
   CustomError,
   EmailAlreadyExists,
+  InvalidAuthData,
   InvalidEmail,
   InvalidInfos,
   InvalidPassword,
@@ -87,6 +88,21 @@ export class UserBusiness {
       const token = tokenGenerator.generateToken({ id: user.id });
 
       return token;
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  }
+
+  async getAllUsers(token: string): Promise<User[] | string> {
+    try {
+      const authData = tokenGenerator.getData(token);
+
+      if (!authData.id) {
+        throw new InvalidAuthData();
+      }
+
+      const result = await userDatabase.getAllUsers();
+      return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

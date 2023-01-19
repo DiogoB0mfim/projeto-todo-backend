@@ -40,5 +40,10 @@ export class InvalidAuthData extends CustomError {
   }
 }
 
+export class InvalidStatus extends CustomError {
+  constructor() {
+    super(400, "Status inserido diferente dos aceitos!");
+  }
+}
 
 

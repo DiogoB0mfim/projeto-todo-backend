@@ -10,3 +10,7 @@ workspaceRouter.post("/create-workspace", workspaceController.createWorkspace);
 
 // Path para pegar workspaces
 workspaceRouter.get("/get-all", workspaceController.getAllWorkspaces);
+
+// Path para deletar workspace
+workspaceRouter.delete("/delete-workspace/:id", workspaceController.deleteWorkspace);
+
