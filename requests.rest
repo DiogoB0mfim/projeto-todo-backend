@@ -2,9 +2,9 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "firstName": "Diogo" ,
-    "lastName": "Bomfim",
-    "email": "diogo@email.com",
+    "firstName": "Max" ,
+    "lastName": "Ranholi",
+    "email": "Max@email.com",
     "password": "12345678"
 }
 
@@ -19,12 +19,12 @@ Content-Type: application/json
 
 ####
 GET http://localhost:3003/user/get-all
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjZhNmQyYTVhLTQ3OTktNGEwYi1hNWEyLTZhYjY0NTEzMjYwYyJ9LCJpYXQiOjE2NzQyODI4NzYsImV4cCI6MTY3NDMwMDg3Nn0.8jRcndsf5rwriKKnVTAxaxU0SyXftSPopflcZZs5LiI
 
 ####
 POST http://localhost:3003/workspace/create-workspace
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjZhNmQyYTVhLTQ3OTktNGEwYi1hNWEyLTZhYjY0NTEzMjYwYyJ9LCJpYXQiOjE2NzQyODI4NzYsImV4cCI6MTY3NDMwMDg3Nn0.8jRcndsf5rwriKKnVTAxaxU0SyXftSPopflcZZs5LiI
 
 {
     "idUser" : "fb71752d-9fd5-4990-b011-189bf33d3d43",
@@ -33,17 +33,17 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJk
 
 ####
 GET http://localhost:3003/workspace/get-all/fb71752d-9fd5-4990-b011-189bf33d3d43
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjZhNmQyYTVhLTQ3OTktNGEwYi1hNWEyLTZhYjY0NTEzMjYwYyJ9LCJpYXQiOjE2NzQyODI4NzYsImV4cCI6MTY3NDMwMDg3Nn0.8jRcndsf5rwriKKnVTAxaxU0SyXftSPopflcZZs5LiI
 
 ####
 DELETE http://localhost:3003/workspace/delete-workspace/16087adb-6097-46f0-883c-cbd12308f241
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjZhNmQyYTVhLTQ3OTktNGEwYi1hNWEyLTZhYjY0NTEzMjYwYyJ9LCJpYXQiOjE2NzQyODI4NzYsImV4cCI6MTY3NDMwMDg3Nn0.8jRcndsf5rwriKKnVTAxaxU0SyXftSPopflcZZs5LiI
 
 
 ####
 POST http://localhost:3003/task/create-task
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjZhNmQyYTVhLTQ3OTktNGEwYi1hNWEyLTZhYjY0NTEzMjYwYyJ9LCJpYXQiOjE2NzQyODI4NzYsImV4cCI6MTY3NDMwMDg3Nn0.8jRcndsf5rwriKKnVTAxaxU0SyXftSPopflcZZs5LiI
 
 {
     "idUser" : "fb71752d-9fd5-4990-b011-189bf33d3d43", 
@@ -55,16 +55,16 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJk
 
 ####
 GET http://localhost:3003/task/get-all/fb71752d-9fd5-4990-b011-189bf33d3d43
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjZhNmQyYTVhLTQ3OTktNGEwYi1hNWEyLTZhYjY0NTEzMjYwYyJ9LCJpYXQiOjE2NzQyODI4NzYsImV4cCI6MTY3NDMwMDg3Nn0.8jRcndsf5rwriKKnVTAxaxU0SyXftSPopflcZZs5LiI
 
 ####
 DELETE http://localhost:3003/task/delete-task/b9dfca55-a2bc-4124-9bcc-f9b268888703
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjZhNmQyYTVhLTQ3OTktNGEwYi1hNWEyLTZhYjY0NTEzMjYwYyJ9LCJpYXQiOjE2NzQyODI4NzYsImV4cCI6MTY3NDMwMDg3Nn0.8jRcndsf5rwriKKnVTAxaxU0SyXftSPopflcZZs5LiI
 
 ####
 PUT http://localhost:3003/task/update-task
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjZhNmQyYTVhLTQ3OTktNGEwYi1hNWEyLTZhYjY0NTEzMjYwYyJ9LCJpYXQiOjE2NzQyODI4NzYsImV4cCI6MTY3NDMwMDg3Nn0.8jRcndsf5rwriKKnVTAxaxU0SyXftSPopflcZZs5LiI
 
 {
     "id" : "afa37760-9c63-46ce-b4a9-a84251239158",

@@ -1,7 +1,8 @@
+import { UserRepository } from "../business/repository/UserRepository";
 import { User } from "../models/User";
 import BaseDatabase from "./BaseDatabase";
 
-export class UserDatabase extends BaseDatabase {
+export class UserDatabase extends BaseDatabase implements UserRepository {
   private static table = "Todo_users";
 
   public async signUp(user: User) : Promise<void> {

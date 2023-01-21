@@ -2,9 +2,11 @@ import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
 import { UserDTO, UserLogin } from "../models/User";
 
-const userBusiness = new UserBusiness();
-
 export class UserController {
+  constructor(
+    private userBusiness : UserBusiness
+  ){};
+
   async signUp(req: Request, res: Response): Promise<void> {
     try {
       const { firstName, lastName, email, password } = req.body;
@@ -16,7 +18,7 @@ export class UserController {
         password,
       };
 
-      const token = await userBusiness.signUp(newUser);
+      const token = await this.userBusiness.signUp(newUser);
 
       res.status(200).send({ token: token });
     } catch (error: any) {
@@ -33,7 +35,7 @@ export class UserController {
         password,
       };
 
-      const result = await userBusiness.login(userLogin);
+      const result = await this.userBusiness.login(userLogin);
 
       res.status(200).send({ result: result });
     } catch (error: any) {
@@ -45,7 +47,7 @@ export class UserController {
     try {
       const token = req.headers.authorization as string;
 
-      const result = await userBusiness.getAllUsers(token);
+      const result = await this.userBusiness.getAllUsers(token);
       res.status(200).send({ result: result });
     } catch (error: any) {
       res.status(400).send(error.message);

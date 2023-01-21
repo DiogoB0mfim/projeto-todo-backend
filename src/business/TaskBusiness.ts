@@ -1,4 +1,3 @@
-import { TaskDatabase } from "../database/TaskDatabase";
 import {
   CustomError,
   InvalidAuthData,
@@ -6,14 +5,16 @@ import {
   InvalidStatus,
 } from "../error/CustomError";
 import { Task, TaskDTO, TaskStatus } from "../models/Task";
-import { IdGenerator } from "../services/IdGenerator";
-import { TokenGenerator } from "../services/TokenGenerator";
-
-const taskDatabase = new TaskDatabase();
-const idGenerator = new IdGenerator();
-const tokenGenerator = new TokenGenerator();
+import { IIdGenerator, ITokenGenerator } from "./Port";
+import { TaskRepository } from "./repository/TaskRepository";
 
 export class TaskBusiness {
+  constructor(
+    private taskDatabase: TaskRepository,
+    private idGenerator: IIdGenerator,
+    private tokenGenerator: ITokenGenerator
+  ) {}
+
   async createTask(task: TaskDTO, token: string): Promise<void | string> {
     try {
       const { idUser, title, description, idWorkspace, status } = task;
@@ -26,13 +27,13 @@ export class TaskBusiness {
         throw new InvalidStatus();
       }
 
-      const authData = tokenGenerator.getData(token);
+      const authData = this.tokenGenerator.getData(token);
 
       if (!authData.id) {
         throw new InvalidAuthData();
       }
 
-      const id = idGenerator.generate();
+      const id = this.idGenerator.generate();
 
       const newTask: Task = {
         id,
@@ -43,21 +44,21 @@ export class TaskBusiness {
         status,
       };
 
-      await taskDatabase.createTask(newTask);
+      await this.taskDatabase.createTask(newTask);
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
   }
 
-  async getAllUserTasks(id : string, token: string): Promise<Task[] | string> {
+  async getAllUserTasks(id: string, token: string): Promise<Task[] | string> {
     try {
-      const authData = tokenGenerator.getData(token);
+      const authData = this.tokenGenerator.getData(token);
 
       if (!authData.id) {
         throw new InvalidAuthData();
       }
 
-      const result = await taskDatabase.getAllUserTasks(id);
+      const result = await this.taskDatabase.getAllUserTasks(id);
       return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);
@@ -70,25 +71,25 @@ export class TaskBusiness {
         throw new InvalidInfos();
       }
 
-      const authData = tokenGenerator.getData(token);
+      const authData = this.tokenGenerator.getData(token);
 
       if (!authData.id) {
         throw new InvalidAuthData();
       }
 
-      await taskDatabase.deleteTask(id);
+      await this.taskDatabase.deleteTask(id);
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
   }
 
-  async updateTaskStatus(idTask: string, status: TaskStatus, token : string): Promise<void> {
+  async updateTaskStatus(idTask: string, status: TaskStatus, token: string): Promise<void> {
     try {
       if (!idTask || !status || !token) {
         throw new InvalidStatus();
       }
 
-      const authData = tokenGenerator.getData(token);
+      const authData = this.tokenGenerator.getData(token);
 
       if (!authData.id) {
         throw new InvalidAuthData();
@@ -98,7 +99,7 @@ export class TaskBusiness {
         throw new InvalidStatus();
       }
 
-      await taskDatabase.updateTaskStatus(idTask, status)
+      await this.taskDatabase.updateTaskStatus(idTask, status);
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

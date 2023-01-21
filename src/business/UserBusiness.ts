@@ -1,8 +1,4 @@
-import { UserDatabase } from "../database/UserDatabase";
 import { User, UserDTO, UserLogin } from "../models/User";
-import { HashManager } from "../services/HashManager";
-import { IdGenerator } from "../services/IdGenerator";
-import { TokenGenerator } from "../services/TokenGenerator";
 import {
   CustomError,
   EmailAlreadyExists,
@@ -12,13 +8,17 @@ import {
   InvalidPassword,
   InvalidUser,
 } from "../error/CustomError";
-
-const userDatabase = new UserDatabase();
-const hashManager = new HashManager();
-const idGenerator = new IdGenerator();
-const tokenGenerator = new TokenGenerator();
+import { UserRepository } from "./repository/UserRepository";
+import { IHashManager, IIdGenerator, ITokenGenerator } from "./Port";
 
 export class UserBusiness {
+  constructor(
+    private userDatabase: UserRepository,
+    private hashManager: IHashManager,
+    private idGenerator: IIdGenerator,
+    private tokenGenerator: ITokenGenerator
+  ) {}
+
   async signUp(user: UserDTO): Promise<string> {
     try {
       const { firstName, lastName, email, password } = user;
@@ -35,14 +35,14 @@ export class UserBusiness {
         throw new InvalidPassword();
       }
 
-      const findUser = await userDatabase.findUserByEmail(email);
+      const findUser = await this.userDatabase.findUserByEmail(email);
 
       if (findUser !== undefined) {
         throw new EmailAlreadyExists();
       }
 
-      const id = idGenerator.generate();
-      const hashPass = await hashManager.hash(password);
+      const id = this.idGenerator.generate();
+      const hashPass = await this.hashManager.hash(password);
 
       const newUser: User = {
         id: id,
@@ -52,8 +52,8 @@ export class UserBusiness {
         password: hashPass,
       };
 
-      await userDatabase.signUp(newUser);
-      const token = tokenGenerator.generateToken({ id });
+      await this.userDatabase.signUp(newUser);
+      const token = this.tokenGenerator.generateToken({ id });
 
       return token;
     } catch (error: any) {
@@ -73,21 +73,24 @@ export class UserBusiness {
         throw new InvalidEmail();
       }
 
-      const user = await userDatabase.findUserByEmail(email);
+      const user = await this.userDatabase.findUserByEmail(email);
 
       if (user === undefined) {
         throw new InvalidUser();
       }
 
-      const isValidPass = await hashManager.compare(password, user.password);
+      const isValidPass = await this.hashManager.compare(
+        password,
+        user.password
+      );
 
       if (!isValidPass) {
         throw new InvalidUser();
       }
 
-      const token = tokenGenerator.generateToken({ id: user.id });
+      const token = this.tokenGenerator.generateToken({ id: user.id });
 
-      const result = {token, user}
+      const result = { token, user };
 
       return result;
     } catch (error: any) {
@@ -97,13 +100,13 @@ export class UserBusiness {
 
   async getAllUsers(token: string): Promise<User[] | string> {
     try {
-      const authData = tokenGenerator.getData(token);
+      const authData = this.tokenGenerator.getData(token);
 
       if (!authData.id) {
         throw new InvalidAuthData();
       }
 
-      const result = await userDatabase.getAllUsers();
+      const result = await this.userDatabase.getAllUsers();
       return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);

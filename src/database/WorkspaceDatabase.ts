@@ -1,7 +1,8 @@
+import { WorkspaceRepository } from "../business/repository/WorkspaceRepository";
 import { Workspace } from "../models/Workspace";
 import BaseDatabase from "./BaseDatabase";
 
-export class WorkspaceDatabase extends BaseDatabase {
+export class WorkspaceDatabase extends BaseDatabase implements WorkspaceRepository {
   private static table = "Todo_workspaces";
 
   public async createWorkspace(workspace: Workspace): Promise<void> {

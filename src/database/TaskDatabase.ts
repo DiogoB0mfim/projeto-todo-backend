@@ -1,7 +1,8 @@
+import { TaskRepository } from "../business/repository/TaskRepository";
 import { Task, TaskStatus } from "../models/Task";
 import BaseDatabase from "./BaseDatabase";
 
-export class TaskDatabase extends BaseDatabase {
+export class TaskDatabase extends BaseDatabase implements TaskRepository {
   private static table = "Todo_tasks";
 
   public async createTask(task: Task): Promise<void> {
