@@ -12,10 +12,10 @@ export class WorkspaceDatabase extends BaseDatabase {
     });
   }
 
-  public async getAllWorkspaces(): Promise<Workspace[]> {
-    const result = await BaseDatabase.connection(
-      WorkspaceDatabase.table
-    ).select();
+  public async getAllUserWorkspaces(id : string): Promise<Workspace[]> {
+    const result = await BaseDatabase.connection(WorkspaceDatabase.table)
+    .where({ "id_user" : id })
+    .select();
 
     return result;
   }

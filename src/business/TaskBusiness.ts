@@ -49,7 +49,7 @@ export class TaskBusiness {
     }
   }
 
-  async getAllTasks(token: string): Promise<Task[] | string> {
+  async getAllUserTasks(id : string, token: string): Promise<Task[] | string> {
     try {
       const authData = tokenGenerator.getData(token);
 
@@ -57,7 +57,7 @@ export class TaskBusiness {
         throw new InvalidAuthData();
       }
 
-      const result = await taskDatabase.getAllTasks();
+      const result = await taskDatabase.getAllUserTasks(id);
       return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);

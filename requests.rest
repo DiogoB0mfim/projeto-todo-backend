@@ -19,52 +19,52 @@ Content-Type: application/json
 
 ####
 GET http://localhost:3003/user/get-all
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQxNTU1NzcsImV4cCI6MTY3NDE3MzU3N30.yYOLl2lbZ7x6lrKOXLeB-7rXEU2Rw8b0RPpZ7nqbk5c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
 
 ####
 POST http://localhost:3003/workspace/create-workspace
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQxNTU1NzcsImV4cCI6MTY3NDE3MzU3N30.yYOLl2lbZ7x6lrKOXLeB-7rXEU2Rw8b0RPpZ7nqbk5c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
 
 {
     "idUser" : "fb71752d-9fd5-4990-b011-189bf33d3d43",
-    "name" : "Faculdade"
+    "name" : "Jogos"
 }
 
 ####
-GET http://localhost:3003/workspace/get-all
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQxNTU1NzcsImV4cCI6MTY3NDE3MzU3N30.yYOLl2lbZ7x6lrKOXLeB-7rXEU2Rw8b0RPpZ7nqbk5c
+GET http://localhost:3003/workspace/get-all/fb71752d-9fd5-4990-b011-189bf33d3d43
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
 
 ####
 DELETE http://localhost:3003/workspace/delete-workspace/16087adb-6097-46f0-883c-cbd12308f241
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQxNTU1NzcsImV4cCI6MTY3NDE3MzU3N30.yYOLl2lbZ7x6lrKOXLeB-7rXEU2Rw8b0RPpZ7nqbk5c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
 
 
 ####
 POST http://localhost:3003/task/create-task
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQxNTU1NzcsImV4cCI6MTY3NDE3MzU3N30.yYOLl2lbZ7x6lrKOXLeB-7rXEU2Rw8b0RPpZ7nqbk5c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
 
 {
     "idUser" : "fb71752d-9fd5-4990-b011-189bf33d3d43", 
-    "title" : "Estudar Port", 
-    "description" : "Preciso estudar equação para a prova de matemática", 
-    "idWorkspace" : "076a0589-895e-4870-b2d9-70206c86ef39", 
+    "title" : "Jogar lol", 
+    "description" : "Preciso aprender a jogar de wukong", 
+    "idWorkspace" : "a0e97471-b8df-4bf6-a0bd-6447eab89682", 
     "status" : "TO_DO"
 }
 
 ####
-GET http://localhost:3003/task/get-all
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQxNTU1NzcsImV4cCI6MTY3NDE3MzU3N30.yYOLl2lbZ7x6lrKOXLeB-7rXEU2Rw8b0RPpZ7nqbk5c
+GET http://localhost:3003/task/get-all/fb71752d-9fd5-4990-b011-189bf33d3d43
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
 
 ####
 DELETE http://localhost:3003/task/delete-task/b9dfca55-a2bc-4124-9bcc-f9b268888703
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQxNTU1NzcsImV4cCI6MTY3NDE3MzU3N30.yYOLl2lbZ7x6lrKOXLeB-7rXEU2Rw8b0RPpZ7nqbk5c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
 
 ####
 PUT http://localhost:3003/task/update-task
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQxNTU1NzcsImV4cCI6MTY3NDE3MzU3N30.yYOLl2lbZ7x6lrKOXLeB-7rXEU2Rw8b0RPpZ7nqbk5c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImZiNzE3NTJkLTlmZDUtNDk5MC1iMDExLTE4OWJmMzNkM2Q0MyJ9LCJpYXQiOjE2NzQyNDcxODcsImV4cCI6MTY3NDI2NTE4N30.cBBPjliyccx43CLvH1rvea6XifqZkvJGSkEdmnoPGUc
 
 {
     "id" : "afa37760-9c63-46ce-b4a9-a84251239158",

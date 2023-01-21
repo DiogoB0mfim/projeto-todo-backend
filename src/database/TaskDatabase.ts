@@ -15,8 +15,9 @@ export class TaskDatabase extends BaseDatabase {
     });
   }
 
-  public async getAllTasks(): Promise<Task[]> {
+  public async getAllUserTasks(id : string): Promise<Task[]> {
     const result = await BaseDatabase.connection(TaskDatabase.table)
+    .where({ "id_user" : id })
     .select();
 
     return result;

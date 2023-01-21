@@ -22,11 +22,12 @@ export class WorkSpaceController {
     }
   }
 
-  async getAllWorkspaces(req: Request, res: Response): Promise<void> {
+  async getAllUserWorkspaces(req: Request, res: Response): Promise<void> {
     try {
+      const id = req.params.id;
       const token = req.headers.authorization as string;
 
-      const result = await workspaceBusiness.getAllWorkspaces(token);
+      const result = await workspaceBusiness.getAllUserWorkspaces(id, token);
       res.status(200).send({ result: result });
     } catch (error: any) {
       res.status(400).send(error.message);

@@ -8,8 +8,8 @@ const workspaceController = new WorkSpaceController();
 // Path para criar um workspace
 workspaceRouter.post("/create-workspace", workspaceController.createWorkspace);
 
-// Path para pegar workspaces
-workspaceRouter.get("/get-all", workspaceController.getAllWorkspaces);
+// Path para pegar workspaces de um usuário
+workspaceRouter.get("/get-all/:id", workspaceController.getAllUserWorkspaces);
 
 // Path para deletar workspace
 workspaceRouter.delete("/delete-workspace/:id", workspaceController.deleteWorkspace);

@@ -24,12 +24,3 @@ CREATE TABLE Todo_tasks (
     FOREIGN KEY (id_workspace) REFERENCES Todo_workspaces(id),
     FOREIGN KEY (id_user) REFERENCES Todo_users(id)
 );
-
-CREATE TABLE Todo_workspaces_tasks (
-    id VARCHAR(255) PRIMARY KEY,
-    id_workspace VARCHAR(255),
-    id_task VARCHAR(255),
-    FOREIGN KEY (id_workspace) REFERENCES Todo_workspaces(id),
-    FOREIGN KEY (id_task) REFERENCES Todo_tasks(id)
-);
-

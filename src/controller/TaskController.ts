@@ -25,11 +25,12 @@ export class TaskController {
     }
   }
 
-  async getAllTasks(req: Request, res: Response): Promise<void> {
+  async getAllUserTasks(req: Request, res: Response): Promise<void> {
     try {
+      const id = req.params.id;
       const token = req.headers.authorization as string;
 
-      const result = await taskBusiness.getAllTasks(token);
+      const result = await taskBusiness.getAllUserTasks(id, token);
       res.status(200).send({ result: result });
     } catch (error: any) {
       res.status(400).send(error.message);

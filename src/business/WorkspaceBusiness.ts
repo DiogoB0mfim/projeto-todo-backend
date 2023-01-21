@@ -41,7 +41,7 @@ export class WorkspaceBusiness {
     }
   }
 
-  async getAllWorkspaces(token: string): Promise<Workspace[] | string> {
+  async getAllUserWorkspaces(id : string, token: string): Promise<Workspace[] | string> {
     try {
       const authData = tokenGenerator.getData(token);
 
@@ -49,7 +49,7 @@ export class WorkspaceBusiness {
         throw new InvalidAuthData();
       }
 
-      const result = await workspaceDatabase.getAllWorkspaces();
+      const result = await workspaceDatabase.getAllUserWorkspaces(id);
       return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);
