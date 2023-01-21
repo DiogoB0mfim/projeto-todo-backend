@@ -61,7 +61,7 @@ export class UserBusiness {
     }
   }
 
-  async login(login: UserLogin): Promise<string> {
+  async login(login: UserLogin): Promise<object> {
     try {
       const { email, password } = login;
 
@@ -87,7 +87,9 @@ export class UserBusiness {
 
       const token = tokenGenerator.generateToken({ id: user.id });
 
-      return token;
+      const result = {token, user}
+
+      return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
