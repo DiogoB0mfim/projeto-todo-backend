@@ -18,7 +18,7 @@ export class InvalidEmail extends CustomError {
 
 export class InvalidPassword extends CustomError {
   constructor() {
-    super(400, "Senha inválido!");
+    super(400, "Senha inválida!");
   }
 }
 
@@ -45,5 +45,3 @@ export class InvalidStatus extends CustomError {
     super(400, "Status inserido diferente dos aceitos!");
   }
 }
-
-

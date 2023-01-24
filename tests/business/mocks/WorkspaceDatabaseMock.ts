@@ -2,7 +2,7 @@ import { WorkspaceRepository } from "../../../src/business/repository/WorkspaceR
 import { Workspace, WorkspaceDTO } from "../../../src/models/Workspace";
 import { allWorkspace } from "./WorkspaceMock";
 
-export class TaskDatabaseMock implements WorkspaceRepository {
+export class WorkspaceDatabaseMock implements WorkspaceRepository {
   public async createWorkspace(workspace: WorkspaceDTO): Promise<void> {}
 
   public async getAllUserWorkspaces(id: string): Promise<Workspace[]> {
