@@ -2,7 +2,7 @@
 CREATE TABLE Todo_users (
     id VARCHAR(255) PRIMARY KEY,
     first_name VARCHAR(40) NOT NULL,
-    last_name VARCHAR(40) NOT NULL,
+    last_name VARCHAR(40),
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL
 );

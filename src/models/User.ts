@@ -21,3 +21,9 @@ export type UserLogin = {
   email: string;
   password: string;
 };
+
+export type UserLoginGoogle = {
+  name: string;
+  email: string;
+  password: string;
+};

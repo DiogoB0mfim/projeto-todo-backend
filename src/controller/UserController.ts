@@ -1,11 +1,9 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { UserDTO, UserLogin } from "../models/User";
+import { UserDTO, UserLogin, UserLoginGoogle } from "../models/User";
 
 export class UserController {
-  constructor(
-    private userBusiness : UserBusiness
-  ){};
+  constructor(private userBusiness: UserBusiness) {}
 
   async signUp(req: Request, res: Response): Promise<void> {
     try {
@@ -48,6 +46,23 @@ export class UserController {
       const token = req.headers.authorization as string;
 
       const result = await this.userBusiness.getAllUsers(token);
+      res.status(200).send({ result: result });
+    } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  }
+
+  async vefGoogleLogin(req: Request, res: Response): Promise<void> {
+    try {
+      const { name, email, password } = req.body;
+
+      const userLoginGoogle: UserLoginGoogle = {
+        name,
+        email,
+        password,
+      };
+
+      const result = await this.userBusiness.vefGoogleLogin(userLoginGoogle);
       res.status(200).send({ result: result });
     } catch (error: any) {
       res.status(400).send(error.message);

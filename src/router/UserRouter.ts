@@ -24,3 +24,6 @@ userRouter.post("/login", (req, res) => userController.login (req, res));
 
 // Path para pegar todos usuários
 userRouter.get("/get-all", (req, res) => userController.getAllUsers (req, res));
+
+// Path para logar com google
+userRouter.post("/vef-google-login", (req, res) => userController.vefGoogleLogin (req, res));
