@@ -55,7 +55,7 @@ export class UserBusiness {
       await this.userDatabase.signUp(newUser);
       const token = this.tokenGenerator.generateToken({ id });
 
-      const result = { token, findUser };
+      const result = { token, newUser };
 
       return result;
     } catch (error: any) {
