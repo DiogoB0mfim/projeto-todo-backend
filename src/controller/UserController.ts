@@ -16,9 +16,9 @@ export class UserController {
         password,
       };
 
-      const token = await this.userBusiness.signUp(newUser);
+      const result = await this.userBusiness.signUp(newUser);
 
-      res.status(200).send({ token: token });
+      res.status(200).send({ result: result });
     } catch (error: any) {
       res.status(400).send(error.message);
     }
