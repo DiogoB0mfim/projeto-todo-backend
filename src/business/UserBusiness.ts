@@ -19,7 +19,7 @@ export class UserBusiness {
     private tokenGenerator: ITokenGenerator
   ) {}
 
-  async signUp(user: UserDTO): Promise<string> {
+  async signUp(user: UserDTO): Promise<object> {
     try {
       const { firstName, lastName, email, password } = user;
 
@@ -55,7 +55,9 @@ export class UserBusiness {
       await this.userDatabase.signUp(newUser);
       const token = this.tokenGenerator.generateToken({ id });
 
-      return token;
+      const result = { token, findUser };
+
+      return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
@@ -133,8 +135,9 @@ export class UserBusiness {
 
         await this.userDatabase.signUp(newUser);
         const token = this.tokenGenerator.generateToken({ id });
+        const result = { token, vefUser };
 
-        return token;
+        return result;
       } else if (vefUser !== undefined) {
         const isValidPass = await this.hashManager.compare(
           password,
@@ -146,7 +149,7 @@ export class UserBusiness {
         } else {
           const token = this.tokenGenerator.generateToken({ id: vefUser.id });
 
-          const result = { token, user };
+          const result = { token, vefUser };
 
           return result;
         }
