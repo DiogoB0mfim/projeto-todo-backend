@@ -10,6 +10,7 @@ import {
 } from "../error/CustomError";
 import { UserRepository } from "./repository/UserRepository";
 import { IHashManager, IIdGenerator, ITokenGenerator } from "./Port";
+import BaseDatabase from "../database/BaseDatabase";
 
 export class UserBusiness {
   constructor(
@@ -154,6 +155,26 @@ export class UserBusiness {
           return result;
         }
       }
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  }
+
+  async getUserById(id: string, token: string): Promise<User> {
+    try {
+      if (!id) {
+        throw new InvalidInfos();
+      }
+
+      const authData = this.tokenGenerator.getData(token);
+
+      if (!authData.id) {
+        throw new InvalidAuthData();
+      }
+
+      const result = await this.userDatabase.getUserById(id)
+
+      return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

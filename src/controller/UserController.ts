@@ -68,4 +68,16 @@ export class UserController {
       res.status(400).send(error.message);
     }
   }
+
+  async getUserById(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const token = req.headers.authorization as string;
+
+      const result = await this.userBusiness.getUserById(id, token);
+      res.status(200).send({ result: result });
+    } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  }
 }

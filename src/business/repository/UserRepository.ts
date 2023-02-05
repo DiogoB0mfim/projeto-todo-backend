@@ -6,4 +6,6 @@ export interface UserRepository {
   findUserByEmail(email: string): Promise<User | undefined>;
 
   getAllUsers(): Promise<User[]>;
+
+  getUserById(id : string): Promise<User>;
 }

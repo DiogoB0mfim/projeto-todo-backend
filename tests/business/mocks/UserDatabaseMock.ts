@@ -12,4 +12,8 @@ export class UserDatabaseMock implements UserRepository {
   public async getAllUsers(): Promise<User[]> {
     return AllUser;
   }
+
+  public async getUserById(id: string): Promise<User> {
+    return AllUser[0];
+  }
 }
